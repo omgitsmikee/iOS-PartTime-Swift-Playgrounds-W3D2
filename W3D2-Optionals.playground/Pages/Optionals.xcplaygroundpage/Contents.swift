@@ -48,7 +48,7 @@ var convertedNum = Double(numberString) //convert numberString to a Double
 
 var inputString = "hello"
 // try to convert inputString to an Int here:
-
+var intInputString = Int(inputString)
 
 //: If you've done everything right you should see "nil" along the right-hand gutter of the playground. This is what we use to represent "nothing". Only optional variables can have a value of `nil`.
 //:
@@ -57,8 +57,8 @@ var inputString = "hello"
 //: First, make the second line below compile by adding a force unwrap.
 //: Then, change the string "1" to "🔥" and observe how the playground responds (or doesn't respond)
 
-var number = Int("🔥")
-// number + 1 // uncomment and fix this.
+//var number = Int("🔥")
+//var newNumber = number! + 1 // uncomment and fix this.
 
 //: In general, force unwrapping is always a risk for a crash, and should be used sparingly and with caution.
 //:
@@ -71,7 +71,21 @@ var number = Int("🔥")
 //: The code below uses a conditional unwrap on `number`. This creates a new variable "unwrapped", but only if `number` is *not* nil. If you option click on the variable `unwrapped` you will notice that it is an `Int` not an `Int?`
 //: 
 //: Switch the string we're converting in Challenge 2 to something that succeeds and back to something that fails and observe how different bits of code get run.
+func getStringOptional() -> String? {
+    
+    return "someString"
+    
+}
 
+
+var str = getStringOptional()
+print(str)
+
+if let s = str {
+    print(s)
+}
+
+var number =  Int("puppies")
 if let unwrapped = number {
     // unwrapped exists in this block, and is number unwrapped.
     print("\(unwrapped) is an Int and no longer an Int?")
@@ -84,9 +98,16 @@ if let unwrapped = number {
 //:
 //: Here's an optional variable. Conditionally unwrap and print it if it exists, print "no greeting" if it doesn't exist.
 
-var greeting: String? = "Aloha!"
+//var greeting: String? = "Aloha!"
+var greeting: String? = nil
 
 
+if let unwrapped = greeting {
+    print("\(unwrapped)")
+}
+else {
+    print("no greeting")
+}
 //: ## One last thing...
 //:
 //: Have a look at the following code:
